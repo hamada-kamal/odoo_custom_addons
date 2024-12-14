@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_library_book_library,book_library.book_library,model_library_book,base.group_user,1,1,1,1
+access_book_library_shelf_library,rrom_library.shelf_library,model_library_shelf,base.group_user,1,1,1,1
+access_book_library_author_library,rrom_library.author_library,model_library_author,base.group_user,1,1,1,1
+access_book_library_category_library,rrom_library.category_library,model_library_book_category,base.group_user,1,1,1,1
+,,,,,,,
+,,,,,,,
+,,,,,,,
+access_book_library_make_lost_wizard,book_library_make_lost_wizard,model_make_lost_wizard,base.group_user,1,1,1,1
+access_book_library_make_price_wizard,book_library_make_price_wizard,model_make_price_wizard,base.group_user,1,1,1,1
+access_book_library_make_not_available_wizard,book_library_make_not_available_wizard,model_make_not_available_wizard,base.group_user,1,1,1,1

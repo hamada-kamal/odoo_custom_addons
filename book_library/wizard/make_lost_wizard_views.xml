@@ -1,0 +1,75 @@
+<odoo>
+  <data>
+
+
+
+
+     <record model="ir.ui.view" id="view_make_lost_wizard_form">
+      <field name="name">Make Lost Wizard Form</field>
+      <field name="model">make.lost.wizard</field>
+      <field name="arch" type="xml">
+        <form>
+          <h2><field name="book_id" readonly="1" options="{'no_open':True}"/></h2>
+          <p class="lead">
+            Are you sure that you lost this book?
+          </p>
+          <footer>
+            <button name="confirm_make_lost" type="object" string="Confirm" class="oe_highlight"/>
+            <button special="cancel" string="Cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="view_make_price_wizard_form">
+      <field name="name">Make Price Wizard Form</field>
+      <field name="model">make.price.wizard</field>
+      <field name="arch" type="xml">
+        <form>
+          <h2><field name="book_id" invisible="1"/></h2>
+          <p class="lead">
+            Please set the price of this book
+          </p>
+          <group>
+            <field name="price"/>
+          </group>
+          <footer>
+            <button name="confirm_price" type="object" string="Confirm Price" class="oe_highlight"/>
+            <button special="cancel" string="Cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_make_un_available_wizard_form">
+      <field name="name">Make Not Available Wizard Form</field>
+      <field name="model">make.not.available.wizard</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="book_ids" string="Books">
+              <tree create="0">
+                <field name="name"/>
+                <field name="date_release"/>
+<!--                <field name="author_ids" widget="many2many_tags" />-->
+                <field name="state"/>
+              </tree>
+            </field>
+          </group>
+          <footer>
+            <button name="confirm_not_available" type="object" string="Make un-available" class="oe_highlight"/>
+            <button special="cancel" string="Cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+
+
+
+
+  </data>
+</odoo>
