@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="employee_cost_tree" model="ir.ui.view">
+        <field name="name">employee.cost.tree</field>
+        <field name="model">employee.cost</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="cost_type_id"/>
+                <field name="cost"/>
+                <field name="date_from"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_cost_form" model="ir.ui.view">
+        <field name="name">employee.cost.form</field>
+        <field name="model">employee.cost</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="cost_type_id"/>
+                            <field name="cost"/>
+                            <field name="date_from"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_employee_cost" model="ir.actions.act_window">
+        <field name="name">Employee Cost</field>
+        <field name="res_model">employee.cost</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+    <menuitem
+            id="sub_menu_employee_cost"
+            name="Employee Cost"
+            parent="menu_employee_cost"
+            action="action_employee_cost"
+            sequence="20"/>
+
+</odoo>

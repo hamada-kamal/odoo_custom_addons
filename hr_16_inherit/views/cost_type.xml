@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="employee_cost_type_tree" model="ir.ui.view">
+        <field name="name">cost.type.tree</field>
+        <field name="model">cost.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" width="200"/>
+                <field name="code" width="200"/>
+                <field name="monthly_cost" width="200"/>
+                <field name="day" width="200"/>
+                <field name="date_from" width="200"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_cost_type_form" model="ir.ui.view">
+        <field name="name">cost.type.form</field>
+        <field name="model">cost.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="set_draft"
+                            string="Draft"
+                            attrs="{'invisible': [('status','=','draft')]}"
+                            type="object"/>
+                    <button name="set_confirm"
+                            string="Confirm"
+                            attrs="{'invisible': [('status','=','confirm')]}"
+                            type="object"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+
+                    <group>
+                        <group>
+                            <field name="name" width="200"/>
+                            <field name="code" width="200"/>
+                            <field name="monthly_cost" width="200" attrs="{'readonly':[('manual','=',False)]}"/>
+                            <field name="day" width="200"/>
+                            <field name="date_from" width="200"/>
+                        </group>
+                        <group string="Cost Type">
+                            <field name="medical" required="1" width="50"/>
+                            <field name="housing" required="1" width="200"/>
+                            <field name="visa" required="1" width="200"/>
+                            <field name="manual" required="1" width="200"/>
+                        </group>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_employee_cost_type" model="ir.actions.act_window">
+        <field name="name">Cost Type</field>
+        <field name="res_model">cost.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="menu_cost_type"
+            name="Cost Type"
+            parent="menu_employee_cost"
+            action="action_employee_cost_type"
+            sequence="10"/>
+
+
+</odoo>

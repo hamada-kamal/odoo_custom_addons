@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="patient_view_form" model="ir.ui.view">
+            <field name="name">patient form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary" states="draft"
+                                confirm="Are you sure that you need to confirm ?"
+                                type="object"/>
+                        <button id="button_done" name="action_done" string="Mark As Done" class="btn-primary" states="confirm"
+                                type="object"/>
+                        <button id="button_draft" name="action_draft" string="Set To Draft" class="btn-primary" states="cancel"
+                                type="object"/>
+                        <button id="button_cancel" name="action_cancel" string="Cancel" states="draft,done,confirm"
+                                confirm="Are you sure that you need to cancel ?"
+                                type="object"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,confirm"/>
+                        
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="p_sequence" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="image" widget="image"/>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="phone"/>
+                            <field name="is_child" readonly="0" />
+                            <field name="gender"/>
+                            <field name="doctor_id" options="{'no_open': True, 'no_create': True}"/>
+                            <field name="appointment_count"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="patient_view_tree" model="ir.ui.view">
+            <field name="name">patient tree</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree string="patient_tree">
+                    <field name="p_sequence"/>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="is_child"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="patient_view_search" model="ir.ui.view">
+            <field name="name">patient search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- Search-->
+                    <field name="p_sequence"/>
+                    <field name="name" filter_domain="['|',('name','ilike',self), ('p_sequence','ilike',self)]"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <!--Filter-->
+                    <filter name="male_filter" string="Male" domain="[('gender','=','male')]"/>
+                    <filter name="female_filter" string="Female" domain="[('gender','=','female')]"/>
+                    <separator/>
+                    <filter name="is_child_filter" string="Is Child" domain="[('is_child','=',True)]"/>
+                    <filter name="not_child_filter" string="Adult" domain="[('is_child','=',False)]"/>
+                    <!--Group-->
+                    <group>
+                        <filter name="group_by_gender" string="Gender" context="{'group_by':'gender'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="patient_action" model="ir.actions.act_window">
+            <field name="name">Patient</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="search_view_id" ref="om_hospital.patient_view_search"/>-->
+        </record>
+
+
+        <menuitem id="hospital" name="Hospital"/>
+        <menuitem id="hospital_operations" name="Operations" parent="hospital"/>
+
+        <menuitem id="patient_id" name="Patient" parent="hospital_operations" action="patient_action"/>
+
+    </data>
+</odoo>

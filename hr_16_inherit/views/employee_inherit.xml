@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     edit employee module menu item
+        <record id="hr_employee_view_inherit" model="ir.ui.view">
+            <field name="name">Hr Employee View Inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="work_email" position="after">
+                    <field name="assign_date"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>
