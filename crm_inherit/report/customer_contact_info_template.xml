@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_contact_info">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <h2 class="mb-5 text-center">Customer(s) Preferred Contact Method</h2>
+                <t t-foreach="customers" t-as="c">
+                    <div class="page">
+
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>
+                                    <t t-esc="c.name"/>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h5>Reference: <small><t t-esc="c.ref"/></small></h5>
+                                <h5>Contact Method: <small><t t-esc="c.contact_method"/></small></h5>
+                                <h5>Phone: <small><t t-esc="c.phone"/></small></h5>
+                                <h5>Email: <small><t t-esc="c.email"/></small></h5>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

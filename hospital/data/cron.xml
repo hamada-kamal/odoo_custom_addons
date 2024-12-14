@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+            <record id="schedule_action_for_send_patient_mail" model="ir.cron">
+                <field name="name">Job: send patient mail</field>
+                <field name="model_id" ref="model_hospital_appointment"/>
+                <field name="state">code</field>
+                <field name="code">model._cron_archive_patient()</field>
+                <field name="interval_number">1</field>
+                <field name="interval_type">minutes</field>
+                <field name="numbercall">-1</field>
+<!--                <field name="active" eval="True"/>-->
+<!--                <field name="nextcall" eval="get_next_start_date"/>-->
+            </record>
+
+</odoo>

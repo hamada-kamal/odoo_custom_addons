@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="crm.crm_lead_action_pipeline">
+        <field name="name">Pipelineeeeee</field>
+    </record>
+
+    <record id="crm.crm_menu_config" model="ir.ui.menu">
+         <field name="name">Configurationnnnnnnn</field>
+    </record>
+
+    <menuitem
+        id="my_new_menuitem"
+        name="My MenuItem"
+        parent="crm.crm_menu_root"
+        sequence="50"
+        action="om_hospital.action_employee_cost_type"
+        />
+
+</odoo>

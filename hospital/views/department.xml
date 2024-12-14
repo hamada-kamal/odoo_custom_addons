@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hospital_department_form" model="ir.ui.view">
+        <field name="name">hospital.department.form</field>
+        <field name="model">hospital.department</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="active"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="cost" options="{'currency_field':'currency_id'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_department_tree" model="ir.ui.view">
+        <field name="name">hospital.department.tree</field>
+        <field name="model">hospital.department</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="company_id" invisible="1"/>
+                <field name="cost" options="{'currency_field':'currency_id'}"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="department_action" model="ir.actions.act_window">
+        <field name="name">Department</field>
+        <field name="res_model">hospital.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem
+            id="hospital_department"
+            name="Departments"
+            parent="hospital.operations_menu"
+            action="department_action"
+            sequence="10"/>
+
+</odoo>

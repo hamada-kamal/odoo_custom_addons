@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hospital_appointments_report" model="ir.actions.report">
+            <field name="name">Patient Appointments</field>
+            <field name="model">hospital.patient</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">hospital.hospital_patient_appointments</field>
+            <field name="report_file">hospital.hospital_patient_appointments</field>
+            <field name="binding_model_id" ref="model_hospital_patient"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="hospital_patient_appointments">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-if="len(docs) == 1">
+                        <t t-foreach="docs" t-as="doc">
+                            <div class="page" style="page-break-after: always;">
+                                <!--                            <t t-call="hospital.my_header_template_id"/>-->
+                                <div class="row">
+                                    <div class="d-flex justify-content-center mb-5">
+                                        <h4 class="text-decoration-underline">
+                                            Patient Name:
+                                            <t t-esc="doc.full_name"/>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h5>
+                                            Ref:
+                                            <t t-esc="doc.ref"/>
+                                        </h5>
+                                        <h5>
+                                            Gender:
+                                            <t t-esc="doc.gender"/>
+                                        </h5>
+                                        <h5>
+                                            Age:
+                                            <t t-esc="doc.age"/>
+                                            year(s)
+                                        </h5>
+                                        <h5>
+                                            Phone:
+                                            <t t-esc="doc.phone"/>
+                                        </h5>
+                                        <h5>
+                                            Identity Number:
+                                            <t t-esc="doc.identity_number"/>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col">
+                                        <h4 class="text-decoration-underline mb-3">Appointments</h4>
+                                        <t t-if="doc.appoinment_ids">
+                                            <table class="table table-bordered mb64">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Doctor</th>
+                                                        <th>Department</th>
+                                                        <th>Date</th>
+<!--                                                        <th>Date Checkup</th>-->
+                                                        <th>State</th>
+                                                        <th>Cost</th>
+                                                        <th>Checks</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr t-foreach="doc.appoinment_ids" t-as="appointment">
+                                                        <td>
+                                                            <span t-field="appointment.doctor_id"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-field="appointment.department_id"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-field="appointment.date_appointment"/>
+                                                        </td>
+<!--                                                        <td>-->
+<!--                                                            <span t-field="appointment.date_checkup"/>-->
+<!--                                                        </td>-->
+                                                        <td>
+                                                            <span t-field="appointment.state"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-field="appointment.cost"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-field="appointment.check_ids"/>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </t>
+                                        <t t-else="">
+                                            There are no appointments yet!
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+
+
+                    <!--More Than Patient now.-->
+                    <t t-else="">
+                        <div class="row">
+                                    <div class="d-flex justify-content-center mb-5">
+                                        <h4 class="text-decoration-underline">
+                                            Appointments report for more than patient
+                                        </h4>
+                                    </div>
+                                </div>
+                        <div class="row">
+                            <table class="table table-bordered mb64">
+                                <thead>
+                                    <tr>
+                                        <th>Patient</th>
+                                        <th>Doctor</th>
+                                        <th>Department</th>
+                                        <th>Date</th>
+<!--                                        <th>Date Checkup</th>-->
+                                        <th>State</th>
+                                        <th>Cost</th>
+                                        <th>Checks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="doc">
+                                        <tr style="outline: thin solid">
+                                            <td t-att-rowspan="len(doc.appoinment_ids) + 1">
+                                                <t t-esc="doc.full_name"/>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="doc.appoinment_ids" t-as="appointment">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="appointment.doctor_id"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="appointment.department_id"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="appointment.date_appointment"/>
+                                                </td>
+<!--                                                <td>-->
+<!--                                                    <span t-field="appointment.date_checkup"/>-->
+<!--                                                </td>-->
+                                                <td>
+                                                    <span t-field="appointment.state"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="appointment.cost"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="appointment.check_ids"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="my_header_template_id">
+            <div class="header">
+                <div class="row">
+                    this is the report header!
+                </div>
+            </div>
+        </template>
+
+    </data>
+</odoo>

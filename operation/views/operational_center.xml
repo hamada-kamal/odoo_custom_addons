@@ -1,0 +1,53 @@
+<odoo>
+
+    <record id="operational_center_form" model="ir.ui.view">
+        <field name="name">operational center</field>
+        <field name="model">operation.operational.center</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button string="Confirm" name="set_confirm" type="object" states="draft" class="btn-success"/>
+                    <button string="Draft" name="set_draft" type="object" states="confirm" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="show_halls"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-home">
+                            <field name="hall_count" widget="statinfo" string="Halls"/>
+                        </button>
+                        <button name="show_parking" type="object"
+                                class="oe_stat_button" icon="fa-car" string="Parking">
+                        </button>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="name" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                            <field name="airport" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                            <field name="other" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="include_barking" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                        <field name="hall"
+                               attrs="{'invisible': [('airport', '=',False)], 'readonly': [('state', '=','confirm')]}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="operational_center_action" model="ir.actions.act_window">
+        <field name="name">Operational Center</field>
+        <field name="res_model">operation.operational.center</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

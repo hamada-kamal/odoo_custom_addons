@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="return_to_available_popup" model="ir.ui.view">
+            <field name="name">receive vehicle popup</field>
+            <field name="model">return.available.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h3>Enter Last Odometer Value ?</h3>
+                    <group>
+                         <field name="odometer" placeholder="K.M In"/>
+                    </group>
+                    <footer>
+                        <button name="set_odometer_in" type="object" string="confirm"
+                                class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

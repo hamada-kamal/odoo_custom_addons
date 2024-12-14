@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_hospital_patent_card" model="ir.actions.report">
+        <field name="name">Patent Card</field>
+        <field name="model">hospital.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">om_hospital.hospital_patent_card_report</field>
+        <field name="report_file">om_hospital.hospital_patent_card_report</field>
+        <field name="print_report_name">'name - %s' % (object.name or 'Attendee').replace('/','')</field>
+        <field name="binding_model_id" ref="model_hospital_patient"/>
+        <field name="binding_type">report</field>
+    </record>
+
+<!-- Doctor Patients Report Action -->
+    <record id="report_action_doctor_patents" model="ir.actions.report">
+        <field name="name">Doctor Patents Report</field>
+        <field name="model">hospital.doctor</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">om_hospital.report_id_doctor_patients</field>
+        <field name="report_file">om_hospital.report_id_doctor_patients</field>
+        <field name="print_report_name">'report doctor - %s' % (object.name or 'Attendee').replace('/','')</field>
+        <field name="binding_model_id" ref="model_hospital_doctor"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+   <template id="sale_order_document_report_inherit" inherit_id="sale.report_saleorder_document">
+      <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="before">
+         <h1>Hi From om_hospital Module</h1>
+      </xpath>
+   </template>
+
+</odoo>

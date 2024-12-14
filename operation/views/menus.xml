@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <menuitem name="Operation" id="menu_root" sequence="10"/>
+        <menuitem name="Dashboard" id="dashboard_menu" parent="menu_root" action="dashboard_action" sequence="15"/>
+        <menuitem name="Counter" id="counter_menu" parent="menu_root" action="counter_action" sequence="20"/>
+        <menuitem name="Configration" id="configration_menu" parent="menu_root" sequence="25"/>
+        <menuitem name="Operational Center" id="operational_center_menu" parent="configration_menu" action="operational_center_action"/>
+        <menuitem name="Hall" id="hall_menu" parent="configration_menu" action="hall_action"/>
+        <menuitem name="Pricing" id="pricing_menu" parent="configration_menu" action="pricing_action"/>
+        <menuitem name="City" id="city_menu" parent="configration_menu" action="city_action"/>
+    </data>
+</odoo>

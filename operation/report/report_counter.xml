@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="paperformat_operation_counter" model="report.paperformat">
+        <field name="name">my paper format report</field>
+        <field name="default" eval="False"/>
+        <field name="disable_shrinking" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">135</field>
+        <field name="page_width">80</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <record id="operation_counter_report" model="ir.actions.report">
+        <field name="name">Operation Counter Report</field>
+        <field name="model">operation.counter</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">operation.report_counter</field>
+        <field name="report_file">operation.report_counter</field>
+        <field name="binding_model_id" ref="model_operation_counter"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_operation_counter"/>
+    </record>
+
+    <template id="report_counter">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="main-content" style="text-align:center;">
+                                    <h2>Company Taahhuda AL-safwah</h2>
+                                    <h3>
+                                        <t t-esc="doc.hall_id.name"/>
+                                    </h3>
+                                    <p>
+                                        <h6>الرقم الضريبي 310108585151</h6>
+                                        <h5>فاتورة ضريبه مبسطة</h5>
+                                        <h5>Private Taxi</h5>
+                                    </p>
+                                    <div class="qr-img">
+                                        <img class=""
+                                             t-att-src="image_data_uri(doc.qr_code)"
+                                             alt="Contact"/>
+
+                                    </div>
+                                    <div class="bill_details" style="text-align:right;padding:10px">
+                                        <h5 style="height:40px;background-color:#c3c3c3;text-align:right;padding:5px">
+                                            <t t-esc="doc.invoice_id.name"/>
+                                            رقم الفاتورة
+                                        </h5>
+                                        <h5>
+                                            <t t-esc="doc.date"/>
+                                            :التاريخ
+                                        </h5>
+                                        <h5>
+                                            <t t-esc="doc.vehicle_id.driver_id.name"></t>
+                                            :السائق
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

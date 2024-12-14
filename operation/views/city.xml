@@ -1,0 +1,23 @@
+<odoo>
+
+    <record id="city_form" model="ir.ui.view">
+        <field name="name">City</field>
+        <field name="model">operation.city</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="city_action" model="ir.actions.act_window">
+        <field name="name">City</field>
+        <field name="res_model">operation.city</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- edit employee module menu item -->
+    <!--    <record id="view_employee_inherit" model="ir.ui.view">-->
+    <!--        <field name="name">Hr Employee Cost</field>-->
+    <!--        <field name="model">hr.employee</field>-->
+    <!--        <field name="inherit_id" ref="hr.menu_hr_department_kanban"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            -->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!--   <record id="action_hospital_doctor" model="ir.actions.act_window">-->
+    <!--        <field name="name">Doctors</field>-->
+    <!--        <field name="res_model">hospital.doctor</field>-->
+    <!--        <field name="view_mode">tree,form</field>-->
+    <!--    </record>-->
+
+
+    <menuitem
+            id="menu_employee_cost"
+            name="Employee Cost"
+            parent="hr.menu_hr_root"
+            sequence="70"/>
+
+
+
+    <menuitem
+            id="menu_cost_type"
+            name="Cost Type"
+            parent="menu_employee_cost"
+            action="action_employee_cost_type"
+            sequence="10"/>
+
+
+
+<!--    <menuitem-->
+<!--            id="menu_cost_screen"-->
+<!--            name="Cost Screen"-->
+<!--            parent="menu_employee_cost"-->
+<!--            action="action_hospital_doctor"-->
+<!--            sequence="20"/>-->
+
+<!--    <menuitem-->
+<!--            id="child_menu_employee_cost"-->
+<!--            name="Employee Cost"-->
+<!--            parent="menu_employee_cost"-->
+<!--            action="action_hospital_doctor"-->
+<!--            sequence="30"/>-->
+
+
+</odoo>

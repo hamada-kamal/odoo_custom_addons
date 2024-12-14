@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="add_driver_popup" model="ir.ui.view">
+            <field name="name">add driver popup</field>
+            <field name="model">add.driver.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h3>Select Driver?</h3>
+                    <ul>
+                        <field name="vehicle_id" invisible="1"/>
+                        <field name="vehicle_business_entity" invisible="1"/>
+                        <li><strong>Driver: </strong><field name="driver_id" options="{'no_open':True}"/> </li>
+                    </ul>
+                    <footer>
+                        <button name="add_driver" type="object" string="confirm"
+                                class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

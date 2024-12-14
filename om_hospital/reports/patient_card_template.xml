@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    <template id="hospital_patent_card_report">-->
+    <!--        <t t-call="web.html_container">-->
+    <!--            <t t-foreach="docs" t-as="o">-->
+    <!--                <t t-call="web.external_layout">-->
+    <!--                    <div class="page">-->
+    <!--                        <h2>Report title</h2>-->
+    <!--                        <p>This object's name is-->
+    <!--                            Ali-->
+    <!--                        </p>-->
+    <!--                    </div>-->
+    <!--                </t>-->
+    <!--            </t>-->
+    <!--        </t>-->
+    <!--    </template>-->
+
+    <template id="hospital_patent_card_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="row mt8">
+                        <div class="col-6">
+                            <h2 class="text-primary">Your Company Name</h2>
+                            <p>Address: 123 Main Street, City, Country</p>
+                        </div>
+                        <div class="col-6 text-right">
+                            <img src="/om_hospital/static/src/img/icon.png" height="80" width="auto"/>
+                        </div>
+                    </div>
+                    <div class="text-center mb16">
+                        <h1 class="text-danger">Sales Order Report</h1>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Reference</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="o.ref"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o.age"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o.gender"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

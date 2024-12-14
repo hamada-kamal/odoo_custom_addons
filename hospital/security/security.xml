@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hospital_security_category" model="ir.module.category">
+        <field name="name">Hospital</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="hospital_doctor_group" model="res.groups">
+        <field name="name">Doctor</field>
+        <field name="category_id" ref="hospital_security_category"/>
+    </record>
+
+    <record id="hospital_receptionist_group" model="res.groups">
+        <field name="name">Receptionist</field>
+        <field name="category_id" ref="hospital_security_category"/>
+        <field name="implied_ids" eval="[(4, ref('hospital_doctor_group'))]"/>
+    </record>
+
+    <record id="hospital_manager_group" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="hospital_security_category"/>
+        <field name="implied_ids" eval="[(4, ref('hospital_receptionist_group'))]"/>
+    </record>
+
+    <!--  Record Rule  (Note that if this record rule applied as "global", no one can create appointment with cost <= 200 due to the domain [('cost', '>', 200)])-->
+<!--    <record id="hospital_doctor_group_rule" model="ir.rule">-->
+<!--        <field name="name">hospital doctor group rule</field>-->
+<!--        <field name="model_id" ref="model_hospital_appointment"/>-->
+<!--        <field name="domain_force">[('cost', '>', 200)]</field>-->
+<!--         <field name="groups" eval="[(4, ref('hospital.hospital_doctor_group'))]"/>-->
+<!--        &lt;!&ndash; <field name="perm_write" eval="False"/>-->
+<!--        <field name="perm_create" eval="False"/>-->
+<!--        <field name="perm_unlink" eval="False"/> &ndash;&gt;-->
+<!--    </record>-->
+
+
+</odoo>

@@ -1,0 +1,187 @@
+<odoo>
+    <data>
+
+        <record id="patient_form" model="ir.ui.view">
+            <field name="name">patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Make Appointment" name="make_appointment_from_patient"
+                                type="object" class="btn-success"/>
+
+                        <button string="Create New Record" name="create_new_record"
+                                type="object" class="btn-success"/>
+                        <button string="Print Appointments Excel Report" name="open_excel_report_wizard"
+                                type="object" class="btn-success"/>
+<!--                        <button string="Make Appointment" name="make_appointment_from_patient"-->
+<!--                                type="object" class="btn-success"/>-->
+                    </header>
+                    <sheet>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="ref" readonly="1"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="active" invisible="1"/>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="age"/>
+                                <field name="phone"/>
+                                <field name="identity_number"/>
+                                <field name="gender" widget="radio"/>
+                                <field name="is_child"/>
+                            </group>
+                            <group>
+                                <field name="photo" widget="image"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Appointments">
+                                <field name="appoinment_ids">
+                                    <tree create="0" edit="1">
+                                        <field name="patient_id"/>
+                                        <field name="doctor_id"/>
+                                        <field name="date_appointment"/>
+                                        <field name="state"/>
+                                        <field name="date_checkup"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="patient_tree" model="ir.ui.view">
+            <field name="name">patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                     <field name="ref"/>
+                    <field name="full_name"/>
+                    <field name="age"/>
+                    <field name="identity_number"/>
+                    <field name="phone"/>
+                    <field name="gender" widget="badge" decoration-info="gender=='male'"
+                           decoration-danger="gender=='female'"/>
+                    <field name="is_child"/>
+                    <field name="appoinment_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="patient_search" model="ir.ui.view">
+            <field name="name">patient.search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="age"/>
+                    <field name="identity_number"/>
+                    <field name="phone"/>
+                    <!--                    <field name="is_child"/>-->
+                    <!--                    <field name="appoinment_ids" widget="many2many_tags"/>-->
+                    <filter string="Male" name="filter_by_male" domain="[('gender','=','male')]"/>
+                    <filter string="Female" name="filter_by_female" domain="[('gender','=','female')]"/>
+                    <separator/>
+                    <filter string="Child" name="filter_by_is_child" domain="[('is_child','=',True)]"/>
+                    <filter string="Not Child" name="filter_by_not_child" domain="[('is_child','=',False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Gender" name="group_by_gender" context="{'group_by':'gender'}"/>
+                        <filter string="Child / Adult" name="group_by_is_child" context="{'group_by':'is_child'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="patient_kanban" model="ir.ui.view">
+            <field name="name">patient.kanban</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="full_name"/>
+                    <field name="age"/>
+                    <field name="id"/>
+                    <field name="photo"/>
+                    <field name="is_child"/>
+                    <field name="gender"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click oe_kanban_card oe_kanban_content o_has_icon h5"
+                                 style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;">
+                                <div class="o_project_kanban_main">
+                                    <div class="o_kanban_card_content mw-100">
+                                        <div class="o_kanban_primary_left">
+                                            <div class="o_primary">
+                                                <!--                                                <span class=" d-flex justify-content-center">-->
+                                                <!--                                                        <field name="photo" widget="image" style="width: 190px;height: 190px;border-radius: 50%;"/>-->
+                                                <!--                                                    </span>-->
+                                                <div class="img-box d-flex justify-content-center">
+                                                    <img t-att-src="kanban_image('hospital.patient', 'photo', record.id.raw_value)"
+                                                         role="img" t-att-title="record.id.value"
+                                                         t-att-alt="record.id.value"
+                                                         style="width: 190px;height: 190px;border-radius: 50%; justify-content:center"/>
+
+                                                </div>
+                                                <br/>
+
+                                                <span class="o_text_overflow">
+                                                    Name:
+                                                    <t t-esc="record.full_name.value"/>
+                                                </span>
+                                                <br/>
+                                                <span class="o_text_overflow">
+                                                    Age:
+                                                    <t t-esc="record.age.value"/>
+                                                    year(s)
+                                                </span>
+                                                <br/>
+
+                                                <span class="float-end lead">
+                                                    <field name="gender" widget="label_selection"
+                                                           options="{'classes':{'male':'info','female':'danger'}}"
+                                                           class="lead"/>
+                                                </span>
+                                                <br/>
+                                                <!--                                                <span class="float-end lead">-->
+                                                <!--                                                    <t t-if="record.is_child.raw_value">-->
+                                                <!--                                                        <i class="fa fa-child"></i>-->
+                                                <!--                                                    </t>-->
+                                                <!--                                                </span>-->
+                                                <!--                                                <br/>-->
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="patient_action" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="context">{'search_default_filter_by_not_child':True}</field>
+        </record>
+
+        <menuitem name="Patient" id="hospital.patient_menu" parent="hospital.operations_menu" action="patient_action"/>
+
+    </data>
+</odoo>

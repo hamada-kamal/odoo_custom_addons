@@ -1,0 +1,79 @@
+<odoo>
+
+    <record id="hall_form" model="ir.ui.view">
+        <field name="name">hall</field>
+        <field name="model">operation.hall</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button string="Confirm" name="set_confirm" type="object" states="draft" class="btn-primary"/>
+                    <button name="open_send_car_wizard" type="object" class="btn-info" string="Send Car" states="confirm"/>
+                    <button name="replace_car" type="object" class="btn-info" string="Replace Car" states="confirm"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="show_vehicles_in_hall"
+                                string="Dash Hall"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-dashboard"
+                                sequence="10">
+                        </button>
+
+                        <button name="show_orders"
+                                string="Orders"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                sequence="15">
+                        </button>
+
+                        <button name="show_dashboard"
+                                string="Dashboard"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-dashboard"
+                                sequence="20">
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="vehicle_ids" widget="many2many_tags" />
+                        <field name="center_id" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                        <field name="green_taxi_no" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                        <field name="vip_no" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                    </group>
+                    <group>
+                        <field name="capacity" attrs="{'readonly': [('state', '=','confirm')]}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hall_tree" model="ir.ui.view">
+        <field name="name">Hall Tree</field>
+        <field name="model">operation.hall</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="center_id"/>
+                <field name="vip_no"/>
+                <field name="green_taxi_no"/>
+                <field name="capacity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hall_action" model="ir.actions.act_window">
+        <field name="name">Hall</field>
+        <field name="res_model">operation.hall</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

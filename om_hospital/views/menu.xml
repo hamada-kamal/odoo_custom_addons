@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top menu item -->
+    <menuitem
+        id="menu_hospital_root"
+        name = "Hospital"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_operations"
+        name = "Operations"
+        parent = "menu_hospital_root"
+        sequence="10"/>
+
+
+<!--  wizard menu -->
+        <menuitem
+            id="get_doctor_wizard"
+            name="Get Doctor"
+            parent="menu_operations"
+            action="action_get_doctor_wizard"
+            sequence="40"/>
+    <menuitem
+            id="create_appointment_wizard"
+            name="Create Appointment"
+            parent="menu_operations"
+            action="action_create_appointment_wizard"
+            sequence="70"/>
+</odoo>

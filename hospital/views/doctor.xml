@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hospital_doctor_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="first_name"/>
+                        <field name="last_name"/>
+                        <field name="gender" required="1" widget='radio'/>
+                        <field name="phone"/>
+                        <field name="code"/>
+                        <field name="department_id" required="1"/>
+                        <field name="active" invisible="1"/>
+                        <field name="parent_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="doctor_tree" model="ir.ui.view">
+        <field name="name">doctor.tree</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="full_name"/>
+                <field name="gender" widget="badge" decoration-info="gender == 'male'"
+                       decoration-danger="gender == 'female'"/>
+                <field name="phone"/>
+                <field name="code"/>
+                <field name="department_id"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="doctor_action" model="ir.actions.act_window">
+        <field name="name">Doctors</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem
+            id="hospital_doctor"
+            name="Doctors"
+            parent="hospital.operations_menu"
+            action="doctor_action"
+            sequence="10"/>
+
+</odoo>

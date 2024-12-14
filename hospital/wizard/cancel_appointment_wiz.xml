@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cancel_appointment_popup" model="ir.ui.view">
+            <field name="name">Cancel Appointment Popup</field>
+            <field name="model">cancel.appointment.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h3>Are you sure you want to cancel this appointment?</h3>
+                    <h5 class="mt-5">appointment details:</h5>
+                    <ul>
+                        <li><strong>Patient: </strong><field name="patient_id" options="{'no_open':True}"/> </li>
+                        <li><strong>Doctor: </strong><field name="doctor_id" options="{'no_open':True}"/></li>
+                        <li><strong>Date: </strong><field name="date_appointment"/></li>
+                        <li><strong>State: </strong><field name="state"/></li>
+                    </ul>
+                    <footer>
+                        <button name="confirm_cancel_appointment" type="object" string="confirm"
+                                class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

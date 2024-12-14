@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="appointment_view_form" model="ir.ui.view">
+            <field name="name">Hospital Appointment Form</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary"
+                                states="draft"
+                                confirm="Are you sure that you need to confirm ?"
+                                type="object"/>
+                        <button id="button_done" name="action_done" string="Mark As Done" class="btn-primary"
+                                states="confirm"
+                                type="object"/>
+                        <button id="button_draft" name="action_draft" string="Set To Draft" class="btn-primary"
+                                states="cancel" type="object"/>
+                        <button id="button_cancel" name="action_cancel" string="Cancel" states="draft,done,confirm"
+                                confirm="Are you sure that you need to cancel ?"
+                                type="object"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,confirm"/>
+                        <button name="action_share_whatsapp" string="Share in whatsapp" type="object"
+                                icon="fa-whatsapp"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="patient_id"/>
+                                <field name="gender" readonly="1" force_save="1"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="doctor_id"/>
+                                <field name="date_appointment"/>
+                                <field name="date_checkup"/>
+                            </group>
+                        </group>
+                        <!--                        <notebook>-->
+
+                        <!--                            <page string="Medicine" name="medicine">-->
+                        <!--                                <field name="prescription_line_ids">-->
+                        <!--                                    <tree editable="bottom">-->
+                        <!--                                        <field name="name"/>-->
+                        <!--                                        <field name="qty"/>-->
+                        <!--                                    </tree>-->
+                        <!--                                    <form>-->
+                        <!--                                        <group>-->
+                        <!--                                            <group>-->
+                        <!--                                                <field name="name"/>-->
+                        <!--                                            </group>-->
+                        <!--                                            <group>-->
+                        <!--                                                <field name="qty"/>-->
+                        <!--                                            </group>-->
+                        <!--                                        </group>-->
+                        <!--                                    </form>-->
+                        <!--                                </field>-->
+                        <!--                            </page>-->
+                        <!--                            <page string="Other Info" name="other_info">-->
+                        <!--                                <field name="note"/>-->
+                        <!--                            </page>-->
+                        <!--                        </notebook>-->
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_appointment_tree" model="ir.ui.view">
+            <field name="name">hospital.appointment.tree</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1">
+                    <header>
+                        <button name="action_done" string="Mark As Done" class="btn-primary"
+                                type="object"/>
+                    </header>
+                    <field name="name"/>
+                    <field name="doctor_id"/>
+                    <field name="patient_id"/>
+                    <field name="age" optional="show"/>
+                    <field name="gender" optional="show"/>
+                    <field name="date_appointment" optional="show"/>
+                    <field name="date_checkup" optional="hide"/>
+                    <!--                    <field name="note" optional="show"/>-->
+                    <field name="state" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appointment_view_search" model="ir.ui.view">
+            <field name="name">hospital.appointment.search</field>
+            <field name="model">hospital.appointment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!-- Search-->
+                    <field name="name"/>
+                    <field name="patient_id"/>
+                    <!--Filter-->
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Done" name="done" domain="[('state', '=', 'done')]"/>
+                    <filter string="Canceld" name="cancel" domain="[('state', '=', 'cancel')]"/>
+                    <filter string="Confirm" name="confirm" domain="[('state', '=', 'confirm')]"/>
+                    <!--Group-->
+                    <group expand="1" string="Group By">
+                        <filter string="Patient" name="patient_id" context="{'group_by':'patient_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="appointment_action" model="ir.actions.act_window">
+            <field name="name">Appointments</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_draft': 1}</field>  <!--Filter 'Draft' will apply by default-->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first appointment !
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+                id="appointment_id"
+                name="Appointments"
+                parent="menu_operations"
+                action="appointment_action"/>
+    </data>
+</odoo>

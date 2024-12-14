@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="send_car_popup" model="ir.ui.view">
+            <field name="name">send car popup</field>
+            <field name="model">send.car.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h3>
+                        Select vehicles To add to
+                        <field name="hall_id" options="{'no_open':True}" readonly="1"/>
+                    </h3>
+                    <group>
+                        <field name="business_entity"/>
+                        <field name="vehicle_ids">
+                            <tree create="0">
+                                <field name="model_id"/>
+                                <field name="license_plate"/>
+                                <field name="total_time"/>
+                                <field name="driver_id"/>
+                                <field name="business_entity"/>
+                                <field name="odometer"/>
+                                <field name="status"
+                                       widget="badge"
+                                       decoration-success="status=='available'"
+                                       decoration-warning="status=='checklist'"
+                                       decoration-info="status=='with driver'"
+                                       decoration-danger="status=='damage'"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="send_car" type="object" string="confirm"
+                                class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

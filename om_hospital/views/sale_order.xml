@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Edit existing view fields -->
+    <record id="view_hospital_sale_order_inherit" model="ir.ui.view">
+        <field name="name">hospital.sale.order.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="email" position="replace">
+                <field name="email" string="new_email"/>
+            </field>
+            <field name="email" position="attributes">
+                <!--                <attribute name="readonly">1</attribute>-->
+                <attribute name="attrs">{'invisible':[('phone','=','')]}</attribute>
+            </field>
+        </field>
+    </record>
+    <!-- Edit existing view fields -->
+    <record id="view_hospital_sale_order2_inherit" model="ir.ui.view">
+        <field name="name">hospital.sale.order2.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="invoice_incoterm_id"/>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="city_code"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- add field to existing view -->
+    <record id="sale_order_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="is_patient"/>
+            </field>
+        </field>
+    </record>
+
+    <!--  inherit order search view  -->
+    <record id="hospital_sale_order_search_inherit" model="ir.ui.view">
+        <field name="name">hospital.sale.order.search.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="date_order" string="AddedOn"/>
+                <filter name="is_patient" string="Is Patient?" domain="[('is_patient','=',True)]"/>
+                <group>
+                    <filter name="patient_group_by" string="Patient Group" context="{'group_by':'is_patient'}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!--  inherit quotation search view  -->
+    <record id="hospital_sale_quotation_search_inherit" model="ir.ui.view">
+        <field name="name">hospital.sale.quotation.search.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="name" string="ByName"/>
+                <filter name="user_id" string="Sale Person" domain="[('user_id','=',9)]"/>
+                <filter name="user_id" string="Sale Person" domain="[]" context="{'group_by':'user_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+
+
+    <!--inherit menu item and edit it -->
+
+    <!--     Method 1 using XML ID-->
+    <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+        <field name="name">Quotation</field>
+        <field name="sequence">23</field>
+    </record>
+
+    <!--    <record id="stock.menu_warehouse_report" model="ir.ui.menu">-->
+    <!--        <field name="name">Reporting</field>-->
+    <!--    </record>-->
+
+
+    <!-- Method 2 -->
+    <!-- not work -->
+
+
+    <!-- Edit Existing action name -->
+
+    <record id="sale.action_orders" model="ir.actions.act_window">
+        <field name="name">Sales Orders Edit Test</field>
+    </record>
+
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="name">Quotations Test</field>
+    </record>
+
+</odoo>

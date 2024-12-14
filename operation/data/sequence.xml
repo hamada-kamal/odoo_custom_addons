@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="hall_sequence" model="ir.sequence">
+            <field name="name">hall sequence</field>
+            <field name="code">hall_sequence_code</field>
+            <field name="prefix">HAL </field>
+            <field name="padding">4</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="appointment_excel_report_popup" model="ir.ui.view">
+            <field name="name">Appointment Excel Report Popup</field>
+            <field name="model">appointment.excel.report.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h3>Print Patient Appointments Excel Report</h3>
+                    <ul>
+                        <li>
+                            <strong>Patient:</strong>
+                            <field name="patient_ids">
+                                <tree create="0">
+                                    <field name="ref"/>
+                                    <field name="full_name"/>
+                                </tree>
+                            </field>
+                        </li>
+                        <!--                        <li><strong>Date From: </strong><field name="date_from"/></li>-->
+                        <!--                        <li><strong>Date To: </strong><field name="date_to"/></li>-->
+                    </ul>
+                    <footer>
+                        <button name="print_appointments_excel_report" type="object" string="Print Excel"
+                                class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,163 @@
+<odoo>
+
+    <record id="dashboard_kanban" model="ir.ui.view">
+        <field name="name">dashboard kanban</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <field name="status"/>
+                <field name="total_time"/>
+                <field name="odometer"/>
+                <field name="business_entity"/>
+                <field name="model_id"/>
+                <field name="license_plate"/>
+                <field name="driver_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click oe_kanban_card oe_kanban_content o_has_icon h5"
+                             style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;">
+                            <div class="o_project_kanban_main">
+                                <div class="o_kanban_card_content mw-100">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <div class="o_kanban_details">
+                                                <div class="o_opportunity_kanban">
+                                                    <t t-if="record.business_entity.raw_value == 'vip'">
+                                                        <widget name="web_ribbon" title="Vip" bg_color="bg-dark"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <widget name="web_ribbon" title="Green Taxi"
+                                                                bg_color="bg-success"/>
+                                                    </t>
+                                                </div>
+                                                <small>
+                                                    <span class="o_text_overflow">
+                                                        Last Odometer:
+                                                        <field name="odometer"/>
+                                                        K.M
+                                                    </span>
+                                                </small>
+                                                <br/>
+                                                <small>
+                                                    <span class="o_text_overflow">
+                                                        Time On State:
+                                                        <t t-esc="record.total_time.value"/>
+                                                    </span>
+                                                </small>
+                                                <br/>
+                                                <small>
+                                                    <span class="o_text_overflow">
+                                                        License Plate:
+                                                        <field name="license_plate"/>
+                                                    </span>
+                                                </small>
+                                                <br/>
+                                                <span class="o_text_overflow">
+                                                    <small>
+                                                        Driver:
+                                                        <field name="driver_id"/>
+                                                    </small>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="dashboard_form" model="ir.ui.view">
+        <field name="name">dashboard Form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="available,checklist,with driver,damage"/>
+                    <button string="Add Driver" name="open_add_driver_wizard" type="object" class="btn-info"
+                            attrs="{'invisible':[('status','!=','available')]}"/>
+                    <button string="Receive Vehicle" name="open_receive_vehicle_wizard" type="object" class="btn-info"
+                            attrs="{'invisible':[('status','!=','checklist')]}"/>
+                    <button string="Add Damage" name="open_add_damage_wizard" type="object" class="btn-danger"
+                            attrs="{'invisible':[('status','!=','checklist')]}"/>
+                    <button string="Request Maintenance" name="open_request_maintenance_wizard" type="object"
+                            class="btn-info" attrs="{'invisible':[('status','!=','damage')]}"/>
+                    <button string="Return To Available" name="return_to_available" type="object" class="btn-success"
+                            attrs="{'invisible':[('status','!=','damage')]}"/>
+                    <button string="Return To Available" name="open_return_to_available_wizard" type="object"
+                            class="btn-success" attrs="{'invisible':[('status','!=','with driver')]}"/>
+
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Vip" bg_color="bg-dark"
+                            attrs="{'invisible': [('business_entity', '!=', 'vip')]}"/>
+                    <widget name="web_ribbon" title="Green Taxi" bg_color="bg-success"
+                            attrs="{'invisible': [('business_entity', '!=', 'green taxi')]}"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_request_maintenance_wizard" type="object"
+                                class="oe_stat_button" icon="fa-calendar" string="Authors">
+                        </button>
+                    </div>
+                    <group string="Model Info">
+                        <field name="model_id" readonly="1" options="{'no_open':True}"/>
+                        <field name="category_id" readonly="1" options="{'no_open':True}"/>
+                        <field name="license_plate" readonly="1"/>
+                        <field name="business_entity" readonly="1"/>
+                    </group>
+                    <group string="Driver Info">
+                        <field name="driver_id" options="{'no_open':True}"
+                               attrs="{'readonly':[('status','!=','available')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dashboard_tree" model="ir.ui.view">
+        <field name="name">dashboard tree</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="model_id"/>
+                <field name="license_plate"/>
+                <field name="total_time"/>
+                <field name="driver_id"/>
+                <field name="business_entity"/>
+                <field name="odometer"/>
+                <field name="status"
+                       widget="badge"
+                       decoration-success="status=='available'"
+                       decoration-warning="status=='checklist'"
+                       decoration-info="status=='with driver'"
+                       decoration-danger="status=='damage'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="dashboard_action" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('status','!=','none')]</field>
+    </record>
+
+    <record id="dashboard_kanban_action_view" model="ir.actions.act_window.view">
+        <field eval="20" name="sequence"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="dashboard_kanban"/>
+        <field name="act_window_id" ref="dashboard_action"/>
+    </record>
+
+    <record id="dashboard_form_action_view" model="ir.actions.act_window.view">
+        <field eval="20" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="dashboard_form"/>
+        <field name="act_window_id" ref="dashboard_action"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,804 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hospital
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-23 17:57+0000\n"
+"PO-Revision-Date: 2024-06-24 12:11+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && "
+"n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_kanban
+msgid "<i class=\"fa fa-calendar\"/> Date:"
+msgstr "التاريخ:"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_kanban
+msgid "<i class=\"fa fa-ellipsis-v\" role=\"img\" aria-label=\"Manage\" title=\"Manage\"/>"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_kanban
+msgid "<i class=\"fa fa-user\"/> Patient:"
+msgstr "المريض:"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_kanban
+msgid "<i class=\"fa fa-user-md\"/> Doctor:"
+msgstr "الدكتور:"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "<strong>Date: </strong>"
+msgstr "التاريخ"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "<strong>Doctor: </strong>"
+msgstr "الدكتور"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "<strong>Patient: </strong>"
+msgstr "المريض"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "<strong>State: </strong>"
+msgstr "الحاله"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_needaction
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__active
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_ids
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_ids
+msgid "Activities"
+msgstr "الانشطه"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_exception_decoration
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_state
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_type_icon
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__age
+msgid "Age"
+msgstr "العمر"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.patient_kanban
+msgid "Age:"
+msgstr "العمر:"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__appoinment_ids
+msgid "Appoinments"
+msgstr "الحجزات"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__appointment_id
+#: model:ir.model.fields,field_description:hospital.field_account_move__appointment_id
+#: model:ir.model.fields,field_description:hospital.field_account_payment__appointment_id
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__appointment_id
+msgid "Appointment"
+msgstr "حجز"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "Appointment Dates"
+msgstr "تاريخ الحجز"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "Appointment Info"
+msgstr "معلومات الحجز"
+
+#. module: hospital
+#: model:ir.actions.act_window,name:hospital.appointment_action
+#: model:ir.ui.menu,name:hospital.appointment
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_activity
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_calendar
+#: model_terms:ir.ui.view,arch_db:hospital.patient_form
+msgid "Appointments"
+msgstr "الحجزات"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.view_hospital_department_form
+msgid "Archived"
+msgstr "ارشفة"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "Are you sure you want to cancel this appointment?"
+msgstr "هل تريد إلغاء الحجز؟"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_attachment_count
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hospital
+#. odoo-python
+#: code:addons/hospital/models/appointment.py:0
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+#, python-format
+msgid "Cancel Appointment"
+msgstr "إلغاء الحجز"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "Canceled"
+msgstr "ملغي"
+
+#. module: hospital
+#: model:ir.model.fields.selection,name:hospital.selection__account_move__state__cancel
+#: model:ir.model.fields.selection,name:hospital.selection__cancel_appointment_wizard__state__cancel
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_appointment__state__cancel
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__date_checkup
+msgid "Check Up Time"
+msgstr "تم الفحص في"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__child_ids
+#: model_terms:ir.ui.view,arch_db:hospital.patient_search
+msgid "Child"
+msgstr "طفل"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.patient_search
+msgid "Child / Adult"
+msgstr "طفل / بالغ"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__company_id
+#: model:ir.model.fields,field_description:hospital.field_account_move__company_id
+#: model:ir.model.fields,field_description:hospital.field_account_payment__company_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__company_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__company_id
+msgid "Company"
+msgstr "شركة"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: hospital
+#: model:ir.model.fields.selection,name:hospital.selection__account_move__state__confirm
+#: model:ir.model.fields.selection,name:hospital.selection__cancel_appointment_wizard__state__confirm
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_appointment__state__confirm
+msgid "Confirmed"
+msgstr "تم التأكيد"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__cost
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__create_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__create_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__create_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__create_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__create_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__create_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__create_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__create_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_move__currency_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__currency_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__date_appointment
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__date_appointment
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hospital
+#: model:ir.actions.act_window,name:hospital.department_action
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__department_id
+#: model:ir.model.fields,field_description:hospital.field_account_move__department_id
+#: model:ir.model.fields,field_description:hospital.field_account_payment__department_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__department_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__department_id
+msgid "Department"
+msgstr "القسم"
+
+#. module: hospital
+#: model:ir.ui.menu,name:hospital.hospital_department
+msgid "Departments"
+msgstr "الاقسام"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__display_name
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__display_name
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__display_name
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__display_name
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__doctor_id
+#: model:ir.model.fields,field_description:hospital.field_account_move__doctor_id
+#: model:ir.model.fields,field_description:hospital.field_account_payment__doctor_id
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__doctor_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__doctor_id
+msgid "Doctor"
+msgstr "الدكتور"
+
+#. module: hospital
+#: model:ir.actions.act_window,name:hospital.doctor_action
+#: model:ir.ui.menu,name:hospital.hospital_doctor
+msgid "Doctors"
+msgstr "الأطباء"
+
+#. module: hospital
+#: model:ir.model.fields.selection,name:hospital.selection__account_move__state__done
+#: model:ir.model.fields.selection,name:hospital.selection__cancel_appointment_wizard__state__done
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_appointment__state__done
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+msgid "Done"
+msgstr "تم"
+
+#. module: hospital
+#: model:ir.model.fields.selection,name:hospital.selection__account_move__state__draft
+#: model:ir.model.fields.selection,name:hospital.selection__cancel_appointment_wizard__state__draft
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_appointment__state__draft
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+msgid "Draft"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_doctor__gender__female
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_patient__gender__female
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+#: model_terms:ir.ui.view,arch_db:hospital.patient_search
+msgid "Female"
+msgstr ""
+
+#. module: hospital
+#: model:ir.ui.menu,name:hospital.female_patient_menu
+msgid "Female Patient"
+msgstr ""
+
+#. module: hospital
+#: model:ir.actions.act_window,name:hospital.female_patient_action
+msgid "Female Patients"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__first_name
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__first_name
+msgid "First Name"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_follower_ids
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_partner_ids
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__activity_type_icon
+#: model:ir.model.fields,help:hospital.field_hospital_patient__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__gender
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__gender
+#: model_terms:ir.ui.view,arch_db:hospital.patient_search
+msgid "Gender"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+#: model_terms:ir.ui.view,arch_db:hospital.patient_search
+msgid "Group By"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__has_message
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model,name:hospital.model_hospital_appointment
+msgid "Hospital Appointment desc"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model,name:hospital.model_hospital_department
+msgid "Hospital Department desc"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model,name:hospital.model_hospital_doctor
+msgid "Hospital Doctor desc"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__id
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__id
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__id
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__id
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__id
+msgid "ID"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_exception_icon
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__activity_exception_icon
+#: model:ir.model.fields,help:hospital.field_hospital_patient__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__code
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__identity_number
+msgid "Identity Number"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__message_needaction
+#: model:ir.model.fields,help:hospital.field_hospital_patient__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__message_has_error
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__message_has_sms_error
+#: model:ir.model.fields,help:hospital.field_hospital_patient__message_has_error
+#: model:ir.model.fields,help:hospital.field_hospital_patient__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__invoice_id
+msgid "Invoice"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__is_child
+msgid "Is Child ?"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_is_follower
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model,name:hospital.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard____last_update
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment____last_update
+#: model:ir.model.fields,field_description:hospital.field_hospital_department____last_update
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor____last_update
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__last_name
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__last_name
+msgid "Last Name"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__write_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__write_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__write_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__write_uid
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__write_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__write_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__write_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__write_date
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_main_attachment_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.patient_form
+msgid "Make Appointment"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_doctor__gender__male
+#: model:ir.model.fields.selection,name:hospital.selection__hospital_patient__gender__male
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+#: model_terms:ir.ui.view,arch_db:hospital.patient_search
+msgid "Male"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__parent_id
+msgid "Manager"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_has_error
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_ids
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__my_activity_date_deadline
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_department__name
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__full_name
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__full_name
+msgid "Name"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.patient_kanban
+msgid "Name:"
+msgstr ""
+
+#. module: hospital
+#. odoo-python
+#: code:addons/hospital/models/patient.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_date_deadline
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_summary
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_type_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.patient_search
+msgid "Not Child"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__note
+#: model:ir.model.fields,field_description:hospital.field_account_move__note
+#: model:ir.model.fields,field_description:hospital.field_account_payment__note
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__note
+#: model_terms:ir.ui.view,arch_db:hospital.view_appointment_invoice_inherit
+msgid "Note"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "Notes"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_needaction_counter
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_has_error_counter
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__message_needaction_counter
+#: model:ir.model.fields,help:hospital.field_hospital_patient__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__message_has_error_counter
+#: model:ir.model.fields,help:hospital.field_hospital_patient__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hospital
+#: model:ir.ui.menu,name:hospital.operations_menu
+msgid "Operations"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__patient_id
+#: model:ir.model.fields,field_description:hospital.field_account_move__patient_id
+#: model:ir.model.fields,field_description:hospital.field_account_payment__patient_id
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__patient_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__patient_id
+#: model:ir.ui.menu,name:hospital.patient_menu
+msgid "Patient"
+msgstr "المريض"
+
+#. module: hospital
+#: model:ir.actions.act_window,name:hospital.patient_action
+msgid "Patients"
+msgstr "المرضي"
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_doctor__phone
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__phone
+msgid "Phone"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__photo
+msgid "Photo"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__ref
+msgid "Reference"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__activity_user_id
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__message_has_sms_error
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "Show Invoice"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__state
+#: model:ir.model.fields,field_description:hospital.field_account_move__state
+#: model:ir.model.fields,field_description:hospital.field_account_payment__state
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__state
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_search
+msgid "State"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_cancel_appointment_wizard__state
+msgid "Status"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__activity_state
+#: model:ir.model.fields,help:hospital.field_hospital_patient__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.constraint,message:hospital.constraint_hospital_patient_age_constrains
+msgid "The age must be a positive number."
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.constraint,message:hospital.constraint_hospital_doctor_code_constrains
+#: model:ir.model.constraint,message:hospital.constraint_hospital_patient_identity_number_constrains
+msgid "The identity number already used!"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.constraint,message:hospital.constraint_hospital_doctor_phone_constrains
+#: model:ir.model.constraint,message:hospital.constraint_hospital_patient_phone_constrains
+msgid "The phone already used!"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_account_bank_statement_line__cost
+#: model:ir.model.fields,field_description:hospital.field_account_move__cost
+#: model:ir.model.fields,field_description:hospital.field_account_payment__cost
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__cost
+msgid "Total Cost"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__activity_exception_decoration
+#: model:ir.model.fields,help:hospital.field_hospital_patient__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,field_description:hospital.field_hospital_appointment__website_message_ids
+#: model:ir.model.fields,field_description:hospital.field_hospital_patient__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model.fields,help:hospital.field_hospital_appointment__website_message_ids
+#: model:ir.model.fields,help:hospital.field_hospital_patient__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "appointment details:"
+msgstr ""
+
+#. module: hospital
+#: model:ir.model,name:hospital.model_cancel_appointment_wizard
+msgid "cancel.appointment.wizard"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+#: model_terms:ir.ui.view,arch_db:hospital.cancel_appointment_popup
+msgid "confirm"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_kanban
+msgid "department"
+msgstr "المريض"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_kanban
+msgid "doctor"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "done"
+msgstr ""
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "draft"
+msgstr "مسودة"
+
+#. module: hospital
+#: model:ir.ui.menu,name:hospital.menu_root
+msgid "hospital"
+msgstr "مستشفى"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_kanban
+msgid "patient"
+msgstr "المريض"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "select department"
+msgstr "حدد القسم"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "select doctor"
+msgstr "اختر الطبيب"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.appointment_form
+msgid "select patient"
+msgstr "حدد المريض"
+
+#. module: hospital
+#. odoo-python
+#: code:addons/hospital/models/appointment.py:0
+#, python-format
+msgid ""
+"there's an appointment for this patient with the same (date, department) already exists!"
+msgstr "هناك موعد لهذا المريض بنفس (التاريخ، القسم) موجود بالفعل!"
+
+#. module: hospital
+#: model:ir.model,name:hospital.model_hospital_patient
+msgid "this is the hospital patient's model"
+msgstr "هذا هو نموذج مريض المستشفى"
+
+#. module: hospital
+#: model_terms:ir.ui.view,arch_db:hospital.patient_kanban
+msgid "year(s)"
+msgstr "سنة"

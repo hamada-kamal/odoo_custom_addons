@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pricing_form" model="ir.ui.view">
+        <field name="name">pricing form</field>
+        <field name="model">operation.pricing</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button string="Confirm" name="set_confirm" type="object" states="draft"
+                            class="btn-success"/>
+                    <button string="Draft" name="set_draft" type="object" states="confirm"
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Pricing Info">
+                            <field name="name"/>
+                            <field name="operational_center_id" attrs="{'readonly':[('state','=','confirm')]}"
+                                   required="1"/>
+                            <field name="business_entity" attrs="{'readonly':[('state','=','confirm')]}" required="1"/>
+                            <field name="branch_ids" widget="many2many_tags"
+                                   attrs="{'readonly':[('state','=','confirm')]}"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="start_date" attrs="{'readonly':[('state','=','confirm')]}"/>
+                            <field name="end_date" attrs="{'readonly':[('state','=','confirm')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Trips">
+                            <field name="trip_ids" attrs="{'readonly':[('state','=','confirm')]}">
+                                <tree editable="bottom">
+                                    <field name="vehicle_id" domain="[('business_entity','=',parent.business_entity),('branch','in',parent.branch_ids)]"/>
+                                    <field name="from_city"/>
+                                    <field name="to_city"/>
+                                    <field name="distance"/>
+                                    <field name="price"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pricing_tree" model="ir.ui.view">
+        <field name="name">pricing tree</field>
+        <field name="model">operation.pricing</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="operational_center_id"/>
+                <field name="business_entity"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state" widget="badge"
+                       decoration-warning="state == 'draft'"
+                       decoration-success="state == 'confirm'"/>
+                <field name="branch_ids" widget="many2many_tags"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="pricing_action" model="ir.actions.act_window">
+        <field name="name">Pricing</field>
+        <field name="res_model">operation.pricing</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

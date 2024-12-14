@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+
+        <record id="female_patient_form" model="ir.ui.view">
+            <field name="name">patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="age"/>
+                                <field name="phone"/>
+                                <field name="gender"/>
+                                <field name="is_child"/>
+                            </group>
+                            <group>
+                                <field name="photo" widget="image"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="appoinment_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="female_patient_action" model="ir.actions.act_window">
+            <field name="name">Female Patients</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('gender','=','female')]</field>
+            <field name="context">{'default_gender':'female'}</field>
+        </record>
+
+
+        <menuitem name="Female Patient" id="hospital.female_patient_menu" parent="hospital.operations_menu" action="female_patient_action"/>
+
+    </data>
+</odoo>

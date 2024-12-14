@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="operation_security_category" model="ir.module.category">
+        <field name="name">Operation</field>
+        <field name="sequence">0</field>
+    </record>
+
+    <record id="employee_group" model="res.groups">
+        <field name="name">Employee</field>
+        <field name="category_id" ref="operation_security_category"/>
+    </record>
+
+    <record id="manager_group" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="operation_security_category"/>
+        <field name="implied_ids" eval="[(4, ref('employee_group'))]"/>
+    </record>
+
+    <record id="operation_main_rule" model="ir.rule">
+        <field name="name">User can see all vehicles</field>
+        <field name="model_id" ref="model_fleet_vehicle"/>
+        <field name="groups" eval="[(4, ref('operation.manager_group'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="operation_employee_rule" model="ir.rule">
+        <field name="name">User can only see vehicles with status (available, with driver) </field>
+        <field name="model_id" ref="model_fleet_vehicle"/>
+        <field name="groups" eval="[(4, ref('operation.employee_group'))]"/>
+        <field name="domain_force">[('status','=','available')]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+</odoo>
