@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+            id="api_menu_root"
+            name="Access Tokens"
+            sequence="1"/>
+
+    <menuitem
+            id="access_token_menu_item_id"
+            name="All Access Token"
+            parent="api_menu_root"
+            action="access_token_action"
+            sequence="2"/>
+</odoo>

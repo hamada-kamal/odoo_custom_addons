@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="access_token_form" model="ir.ui.view">
+            <field name="name">access token form</field>
+            <field name="model">access.token</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="token"/>
+                            <field name="expiration_date"/>
+                            <field name="scope"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="access_token_tree" model="ir.ui.view">
+            <field name="name">access token tree</field>
+            <field name="model">access.token</field>
+            <field name="arch" type="xml">
+                <tree string="doctor_tree">
+                    <field name="user_id"/>
+                    <field name="token"/>
+                    <field name="expiration_date"/>
+                    <field name="scope"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="access_token_action" model="ir.actions.act_window">
+            <field name="name">Access Token</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">access.token</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
