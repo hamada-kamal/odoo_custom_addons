@@ -1,0 +1,27 @@
+<record id="iqama_hr_employee_document_action" model="ir.actions.act_window">
+    <field name="name">Iqama Document</field>
+    <field name="res_model">hr.employee.document</field>
+    <field name="view_mode">tree,form,kanban</field>
+    <field name="view_ids"
+           eval="[(5, 0, 0),
+                  (0, 0, {'view_mode': 'tree', 'view_id': ref('employee_document_expiry_tree_view')}),
+                  (0, 0, {'view_mode': 'form', 'view_id': ref('employee_document_expiry_form_view')}),
+                  (0, 0, {'view_mode': 'kanban', 'view_id': ref('employee_document_expiry_view_kanban')}),
+                  ]"/>
+    <field name="context">{'default_is_iqama':True}</field>
+    <field name="domain">[('is_iqama','=',True)]</field>
+</record>
+
+<record id="licence_hr_employee_document_action" model="ir.actions.act_window">
+    <field name="name">All Licence Document</field>
+    <field name="res_model">hr.employee.document</field>
+    <field name="view_mode">tree,form,kanban</field>
+    <field name="view_ids"
+           eval="[(5, 0, 0),
+                  (0, 0, {'view_mode': 'tree', 'view_id': ref('employee_document_expiry_tree_view')}),
+                  (0, 0, {'view_mode': 'form', 'view_id': ref('employee_document_expiry_form_view')}),
+                  (0, 0, {'view_mode': 'kanban', 'view_id': ref('employee_document_expiry_view_kanban')}),
+                  ]"/>
+    <field name="context">{'default_is_licence':True}</field>
+    <field name="domain">[('is_licence','=',True)]</field>
+</record>
